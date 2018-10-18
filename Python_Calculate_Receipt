@@ -1,0 +1,76 @@
+###Ask customer for 3 items description-quantity-weight-cost. 
+#Return display: descriptions-quantity-weight-tax-subtotal-shipping/handling-total
+
+###Lists###
+listofdescrps=[]
+listofcosts=[]
+listofquants=[]
+listofweights=[]
+
+
+###Functions###
+def getinfo():
+    for i in range(3):
+        if i==0:
+            descrip=input("what'd you get? ")
+            listofdescrps.append(descrip)
+            price=float(input("How much was it? "))
+            listofcosts.append(price)
+            quant=int(input("How many did you get? "))
+            listofquants.append(quant)
+            weight=float(input("How much does each one weigh? "))
+            listofweights.append(weight)
+        else:
+            descrip=input("what else did you get? ")
+            listofdescrps.append(descrip)
+            price=float(input("How much was it? "))
+            listofcosts.append(price)
+            quant=int(input("How many did you get? "))
+            listofquants.append(quant)
+            weight=float(input("How much does each one weigh? "))
+            listofweights.append(weight)
+
+def calculatesubtotal():
+    subtotal=0
+    for i in listofcosts:
+        subtotal=subtotal + i
+    return subtotal
+
+def calculatetax(calculatesubtotal):
+    tax = calculatesubtotal() * .09
+    return tax
+
+def totalquant():
+    totquant = 0
+    for i in listofquants:
+        totquant = totquant + i
+    return totquant
+
+def calculateweight():
+    weight=0
+    for i in listofweights:
+        weight=weight+i
+    return weight
+
+def calculateshiphand(calculateweight):
+    handling = int(5)
+    shipping = calculateweight() * .25
+    totalsh= handling + shipping
+    return totalsh
+
+def calculatetotal(calculatesubtotal,calculatetax,calculateshiphand):
+    totalcost = calculatesubtotal() + calculatetax(calculatesubtotal) + calculateshiphand(calculateweight)
+    return totalcost
+
+def printreceipt():
+    getinfo()
+    print("Your got these items: ",', '.join(listofdescrps))
+    print("For a total of",totalquant(),"items.")
+    print("Their total weight is: ",calculateweight())
+    print("Subtotal for this order is: $",calculatesubtotal())
+    print("Tax for this order is: $",calculatetax(calculatesubtotal))
+    print("Shipping and handling for this order is: $",calculateshiphand(calculateweight))
+    print("Your total cost is: $",calculatetotal(calculatesubtotal,calculatetax,calculateshiphand))
+
+###Calls###
+printreceipt()
