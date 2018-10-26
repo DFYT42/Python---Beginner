@@ -1,0 +1,19 @@
+##Purpose: 
+##Read txt file line-by-line.
+##Search for certain string at beginning of lines.
+##Remove part of line before certain character.
+##Append list for later use
+
+nounslist=[]
+adjlist=[]
+def readword(filename):
+    with open(filename, 'r') as f:
+        for line in f:
+            if line.startswith('nouns='):
+                nounslist.append(line.split("=",1)[1])
+            else:
+                adjlist.append(line.split("=",1)[1])
+        print(nounslist)
+        print(adjlist)
+
+readword('pirate.txt')
