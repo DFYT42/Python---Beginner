@@ -14,20 +14,20 @@ def getinfo():
         if i==0:
             descrip=input("what'd you get? ")
             listofdescrps.append(descrip)
-            price=float(input("How much was it? "))
-            listofcosts.append(price)
             quant=int(input("How many did you get? "))
             listofquants.append(quant)
-            weight=float(input("How much does each one weigh? "))
+            price=(float(input("How much was it? "))) * quant
+            listofcosts.append(price)
+            weight=(float(input("How much does each one weigh? "))) * quant
             listofweights.append(weight)
         else:
             descrip=input("what else did you get? ")
             listofdescrps.append(descrip)
-            price=float(input("How much was it? "))
-            listofcosts.append(price)
             quant=int(input("How many did you get? "))
             listofquants.append(quant)
-            weight=float(input("How much does each one weigh? "))
+            price=(float(input("How much was it? "))) * quant
+            listofcosts.append(price)
+            weight=(float(input("How much does each one weigh? "))) * quant
             listofweights.append(weight)
 
 def calculatesubtotal():
