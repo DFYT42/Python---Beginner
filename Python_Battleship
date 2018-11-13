@@ -1,4 +1,11 @@
 #Battleship program from CodeAcademy
+#Future:
+##Make multiple battleships: be careful and make sure battleships are not on top of each other on the game board. 
+#####Balance the size of the board with the number of ships so the game is still challenging and fun to play.
+##Make battleships of different sizes: All the parts of the battleship need to be vertically or horizontally touching 
+#####and don’t accidentally place part of a ship off the side of the board.
+##Make game a two-player game.
+##Use functions to allow your game to have more features like rematches, statistics and more!
 
 #####Import part of random module#####
 from random import randint
